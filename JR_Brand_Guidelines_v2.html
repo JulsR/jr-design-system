@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JR Brand Guidelines — Julissa Roa</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.bunny.net/css?family=garet:400,700&display=swap');
+
+:root {
+  --dark: #202020;
+  --light: #e4e2dd;
+  --blue: #0053e1;
+  --red: #b60d0d;
+  --mid: #7a7a74;
+  --border: rgba(32,32,32,0.1);
+  --border-light: rgba(32,32,32,0.1);
+  --bg: #ffffff;
+  --text: #202020;
+  --mono: 'DM Mono', monospace;
+  --sans: 'Inter', sans-serif;
+  --display: 'Garet', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  font-feature-settings: "cv02","cv03","cv04","cv11";
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; width: 220px; height: 100vh;
+  border-right: 1px solid var(--border);
+  padding: 32px 24px;
+  overflow-y: auto;
+  z-index: 100;
+  background: #f0f0f0;
+}
+.nav-brand { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--blue); text-transform: uppercase; margin-bottom: 32px; }
+.nav-section { margin-bottom: 24px; }
+.nav-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--mid); text-transform: uppercase; margin-bottom: 8px; }
+.nav-link { display: block; font-size: 12px; color: rgba(32,32,32,0.5); text-decoration: none; padding: 4px 0; transition: color 0.15s; }
+.nav-link:hover, .nav-link.active { color: var(--dark); }
+.nav-link.active { color: var(--blue); }
+
+/* ── MAIN ── */
+main { margin-left: 220px; padding: 64px 72px; max-width: 1100px; }
+
+/* ── SECTIONS ── */
+.section { margin-bottom: 96px; scroll-margin-top: 48px; }
+.section-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--blue); text-transform: uppercase; margin-bottom: 12px; }
+.section-title { font-family: var(--display); font-size: 36px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 8px; }
+.section-sub { font-size: 14px; color: rgba(32,32,32,0.5); margin-bottom: 48px; max-width: 560px; line-height: 1.6; }
+.divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 48px; }
+
+/* ── HERO ── */
+.hero { padding: 80px 0 96px; border-bottom: 1px solid var(--border); margin-bottom: 96px; }
+.hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--mid); text-transform: uppercase; margin-bottom: 24px; }
+.hero-title { font-family: var(--display); font-size: clamp(48px, 6vw, 80px); font-weight: 700; letter-spacing: -0.02em; line-height: 0.95; margin-bottom: 24px; }
+.hero-title em { color: var(--blue); font-style: normal; }
+.hero-meta { display: flex; gap: 32px; margin-top: 48px; }
+.hero-stat { }
+.hero-stat-num { font-family: var(--mono); font-size: 11px; color: var(--blue); margin-bottom: 4px; }
+.hero-stat-label { font-size: 12px; color: #7a7a74; }
+
+/* ── CARDS ── */
+.grid { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+.grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.cell { background: #f5f5f5; padding: 28px; }
+.cell-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; color: var(--mid); text-transform: uppercase; margin-bottom: 12px; }
+.cell-value { font-size: 13px; color: #3a3a36; line-height: 1.6; }
+.cell-title { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+
+/* ── COLOR SWATCHES ── */
+.swatch-row { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 32px; }
+.swatch { flex: 1; }
+.swatch-block { height: 120px; }
+.swatch-info { background: #f5f5f5; padding: 16px; }
+.swatch-name { font-weight: 500; font-size: 13px; margin-bottom: 4px; }
+.swatch-hex { font-family: var(--mono); font-size: 11px; color: var(--mid); margin-bottom: 8px; }
+.swatch-use { font-size: 11px; color: rgba(32,32,32,0.5); line-height: 1.5; }
+
+/* ── TYPE SPECIMENS ── */
+.type-row { border: 1px solid var(--border); margin-bottom: 1px; padding: 32px 28px; display: flex; align-items: baseline; gap: 24px; background: #f5f5f5; }
+.type-meta { width: 160px; flex-shrink: 0; }
+.type-meta-name { font-family: var(--mono); font-size: 10px; color: var(--blue); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+.type-meta-spec { font-family: var(--mono); font-size: 10px; color: var(--mid); line-height: 1.6; }
+.type-sample { flex: 1; }
+
+/* ── RULES ── */
+.rule-block { border-left: 2px solid var(--border); padding-left: 24px; margin-bottom: 32px; }
+.rule-block.blue { border-color: var(--blue); }
+.rule-block.red { border-color: var(--red); }
+.rule-block.green { border-color: #1D9E75; }
+.rule-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+.rule-title.blue { color: var(--blue); }
+.rule-title.red { color: var(--red); }
+.rule-title.green { color: #1D9E75; }
+.rule-list { list-style: none; }
+.rule-list li { font-size: 13px; color: #4a4a44; margin-bottom: 8px; padding-left: 16px; position: relative; line-height: 1.5; }
+.rule-list li::before { position: absolute; left: 0; }
+.rule-list.do li::before { content: "✓"; color: #1D9E75; }
+.rule-list.dont li::before { content: "✕"; color: var(--red); }
+.rule-list.note li::before { content: "→"; color: var(--blue); }
+
+/* ── TEMPLATES ── */
+.template { border: 1px solid var(--border); margin-bottom: 24px; overflow: hidden; }
+.template-header { background: #eeeeee; border-bottom: 1px solid var(--border); padding: 20px 28px; display: flex; justify-content: space-between; align-items: center; }
+.template-name { font-family: var(--mono); font-size: 11px; color: var(--blue); text-transform: uppercase; letter-spacing: 0.08em; }
+.template-tag { font-family: var(--mono); font-size: 10px; color: var(--mid); }
+.template-body { padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.template-structure { }
+.template-struct-title { font-family: var(--mono); font-size: 10px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+.struct-item { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+.struct-num { font-family: var(--mono); font-size: 10px; color: var(--blue); width: 20px; flex-shrink: 0; margin-top: 2px; }
+.struct-text { font-size: 12px; color: rgba(32,32,32,0.65); line-height: 1.5; }
+.template-preview { border: 1px solid var(--border); padding: 20px; min-height: 160px; }
+.preview-eyebrow { font-family: var(--mono); font-size: 9px; color: var(--blue); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+.preview-headline { font-size: 18px; font-weight: 500; line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.01em; }
+.preview-body { font-size: 11px; color: rgba(32,32,32,0.5); line-height: 1.6; margin-bottom: 12px; }
+.preview-stat { font-family: var(--mono); font-size: 11px; color: var(--blue); }
+.preview-tag { display: inline-block; border: 1px solid var(--border); font-family: var(--mono); font-size: 9px; padding: 3px 8px; color: var(--mid); margin-right: 4px; }
+.preview-quote { font-size: 15px; font-style: italic; font-weight: 300; line-height: 1.4; border-left: 2px solid var(--blue); padding-left: 16px; color: #202020; }
+.preview-accent { width: 32px; height: 2px; background: var(--blue); margin-bottom: 12px; }
+
+/* ── SPACING TABLE ── */
+.spacing-row { display: flex; align-items: center; gap: 24px; margin-bottom: 12px; padding: 16px; border: 1px solid var(--border); }
+.spacing-box { background: var(--blue); opacity: 0.6; height: 12px; flex-shrink: 0; }
+.spacing-token { font-family: var(--mono); font-size: 11px; color: var(--blue); width: 64px; }
+.spacing-px { font-family: var(--mono); font-size: 11px; color: var(--mid); width: 48px; }
+.spacing-use { font-size: 12px; color: #5a5a54; }
+
+/* ── MOTION ── */
+.motion-card { border: 1px solid var(--border); padding: 28px; margin-bottom: 1px; background: #f5f5f5; }
+
+/* ── TAG ── */
+.tag { display: inline-block; font-family: var(--mono); font-size: 10px; padding: 3px 8px; border: 1px solid var(--border); color: var(--mid); margin-right: 6px; margin-bottom: 6px; }
+.tag.blue { border-color: var(--blue); color: var(--blue); }
+
+/* ── HIGHLIGHT ── */
+.hl { color: var(--blue); }
+.hl-red { color: var(--red); }
+
+/* ── INLINE CODE ── */
+code { font-family: var(--mono); font-size: 11px; background: rgba(32,32,32,0.07); padding: 2px 6px; color: var(--blue); }
+
+.note-box { background: rgba(0,83,225,0.05); border: 1px solid rgba(0,83,225,0.2); padding: 16px 20px; margin: 24px 0; font-size: 12px; color: #3a3a36; line-height: 1.6; }
+.warn-box { background: rgba(182,13,13,0.05); border: 1px solid rgba(182,13,13,0.2); padding: 16px 20px; margin: 24px 0; font-size: 12px; color: #3a3a36; line-height: 1.6; }
+
+/* ── FIGMA TOKENS ── */
+.token-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
+.token-table th { font-family: var(--mono); font-size: 10px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.08em; text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+.token-table td { font-family: var(--mono); font-size: 11px; padding: 10px 16px; border-bottom: 1px solid rgba(32,32,32,0.06); vertical-align: top; }
+.token-table td:first-child { color: var(--blue); }
+.token-table td:nth-child(2) { color: #202020; }
+.token-table td:nth-child(3) { color: #7a7a74; }
+
+@media (max-width: 900px) {
+  nav { display: none; }
+  main { margin-left: 0; padding: 40px 24px; }
+  .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+  .template-body { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">JR Brand System</div>
+  <div class="nav-section">
+    <div class="nav-label">Start here</div>
+    <a class="nav-link active" href="#overview">Overview</a>
+    <a class="nav-link" href="#voice">Brand voice</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Foundations</div>
+    <a class="nav-link" href="#colors">Color system</a>
+    <a class="nav-link" href="#type">Typography</a>
+    <a class="nav-link" href="#spacing">Spacing</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Application</div>
+    <a class="nav-link" href="#layout">Layout system</a>
+    <a class="nav-link" href="#templates">Content templates</a>
+    <a class="nav-link" href="#motion">Motion</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Rules</div>
+    <a class="nav-link" href="#dodont">Do / Don't</a>
+    <a class="nav-link" href="#tokens">Figma tokens</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Applications</div>
+    <a class="nav-link" href="#applications">Social Media</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-eyebrow">Brand Guidelines v2.0 — 2025</div>
+    <h1 class="hero-title">Julissa Roa<br><em>Brand System</em></h1>
+    <p style="font-size:15px;color:rgba(32,32,32,0.5);max-width:480px;line-height:1.7;margin-top:16px;">A practical visual system for a Systems Designer & Visual Strategist. Built to be applied directly in Figma — not to be admired in a PDF.</p>
+    <div class="hero-meta">
+      <div class="hero-stat"><div class="hero-stat-num">01</div><div class="hero-stat-label">Visual system</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">03</div><div class="hero-stat-label">Typefaces</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">04</div><div class="hero-stat-label">Core colors</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">05</div><div class="hero-stat-label">Templates</div></div>
+    </div>
+  </div>
+
+  <!-- ── OVERVIEW ── -->
+  <div class="section" id="overview">
+    <div class="section-eyebrow">Section 01</div>
+    <h2 class="section-title">Visual direction</h2>
+    <p class="section-sub">The brand feels like a high-end design studio that also understands operations. Strategic, not decorative. Editorial, not loud. Every visual decision is justified.</p>
+
+    <div class="grid grid-2" style="margin-bottom:32px;">
+      <div class="cell">
+        <div class="cell-label">Aesthetic reference</div>
+        <div class="cell-value" style="font-size:15px;font-weight:300;line-height:1.5;">Notion × Linear × Framer<br>— but with a human story behind it.</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--mid);">Not a startup template. Not a portfolio cliché. A personal brand with a point of view.</div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Personality words</div>
+        <div style="margin-top:4px;">
+          <span class="tag blue">Strategic</span>
+          <span class="tag blue">Editorial</span>
+          <span class="tag blue">Minimal</span>
+          <span class="tag">Premium</span>
+          <span class="tag">Structured</span>
+          <span class="tag">Intelligent</span>
+          <span class="tag">Slightly bold</span>
+          <span class="tag">Operator-minded</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="cell">
+        <div class="cell-label">Layout style</div>
+        <div class="cell-value">Grid-disciplined. Generous whitespace. Left-aligned by default. Asymmetry only when intentional. Structure is visible but not rigid.</div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Composition rule</div>
+        <div class="cell-value">One dominant element per frame. Headlines carry weight — everything else supports. Never compete with your headline.</div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Tone</div>
+        <div class="cell-value">Editorial with precision. Think: systems thinking meets a design magazine. Clear hierarchy. No decoration without function.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BRAND VOICE ── -->
+  <div class="section" id="voice">
+    <div class="section-eyebrow">Section 01b</div>
+    <h2 class="section-title">Brand voice</h2>
+    <p class="section-sub">How the brand sounds is as important as how it looks. These rules apply to captions, headlines, case study copy, and social posts.</p>
+
+    <div class="grid grid-2" style="margin-bottom:1px;">
+      <div class="cell">
+        <div class="cell-label">Writing style</div>
+        <div class="cell-value">Direct. Declarative. No filler words. Lead with the insight, not the context. Short sentences. Numbers over adjectives.<br><br>
+        <strong style="color:var(--blue);">Write:</strong> "423% reservation growth. Built from scratch."<br>
+        <strong style="color:var(--red);">Not:</strong> "I'm incredibly passionate about helping businesses grow through innovative design solutions."</div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Headline rules</div>
+        <div class="cell-value">
+          — Start with the outcome or the tension<br>
+          — Use sentence case (not Title Case)<br>
+          — Maximum 8 words for social headlines<br>
+          — Never use exclamation marks<br>
+          — Numbers always as numerals: 10, not ten<br>
+          — Em dash for emphasis, not parentheses
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="cell">
+        <div class="cell-label">Voice: what JR sounds like</div>
+        <div class="cell-value">The operator who also designs. Confident without being loud. Says what others only think. Backs opinions with evidence. Never hedges.</div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Voice: what JR never sounds like</div>
+        <div class="cell-value">Hustle culture. Inspirational poster. "My journey." Buzzword stacking. Humble bragging. Vague thought leadership. Excessive emoji.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── COLORS ── -->
+  <div class="section" id="colors">
+    <div class="section-eyebrow">Section 02</div>
+    <h2 class="section-title">Color system</h2>
+    <p class="section-sub">Four colors. Each with a specific job. The system works because of restraint — not variety.</p>
+
+    <div class="swatch-row">
+      <div class="swatch">
+        <div class="swatch-block" style="background:#202020;border:1px solid rgba(32,32,32,0.08);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dark base</div>
+          <div class="swatch-hex">#202020</div>
+          <div class="swatch-use">Primary background. All dark-mode surfaces. Default canvas.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#e4e2dd;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name" style="color:#202020;">Light neutral</div>
+          <div class="swatch-hex" style="color:#5a5a58;">#e4e2dd</div>
+          <div class="swatch-use" style="color:#5a5a58;">Primary text on dark. Light-mode canvas. Off-white — warmer than pure white.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#0053e1;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Primary accent</div>
+          <div class="swatch-hex">#0053e1</div>
+          <div class="swatch-use">CTAs, links, data highlights, eyebrows, active states. The intelligence signal.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#b60d0d;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Emphasis red</div>
+          <div class="swatch-hex">#b60d0d</div>
+          <div class="swatch-use">Sparingly. Contrarian moments, critical callouts, tension statements. Max 1 use per layout.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong style="color:var(--blue);">The restraint rule:</strong> Blue appears on 20–30% of elements max. Red appears on 1 element per layout maximum. Most of your visual field should be dark + light neutral contrast. Color earns its place.
+    </div>
+
+    <div class="grid grid-2" style="margin-top:24px;">
+      <div class="cell">
+        <div class="cell-label">Dark mode rules (default)</div>
+        <div class="cell-value">
+          — Canvas: <code>#202020</code><br>
+          — Primary text: <code>#e4e2dd</code><br>
+          — Muted text: <code>rgba(32,32,32,0.45)</code><br>
+          — Borders: <code>rgba(32,32,32,0.1)</code><br>
+          — Surface lift: <code>rgba(32,32,32,0.03)</code><br>
+          — Accent: <code>#0053e1</code> — max 30% of frame<br>
+          — Red: <code>#b60d0d</code> — max 1 use per layout
+        </div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Light mode rules (case studies / landing pages)</div>
+        <div class="cell-value">
+          — Canvas: <code>#e4e2dd</code><br>
+          — Primary text: <code>#202020</code><br>
+          — Muted text: <code>rgba(32,32,32,0.45)</code><br>
+          — Borders: <code>rgba(32,32,32,0.12)</code><br>
+          — Accent: <code>#0053e1</code> — same rule<br>
+          — Dark blocks: <code>#202020</code> sections for contrast<br>
+          — Never use pure white (<code>#ffffff</code>) — always <code>#e4e2dd</code>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;">
+      <div class="cell-label" style="margin-bottom:16px;">Color use by context</div>
+      <div class="grid grid-3">
+        <div class="cell">
+          <div class="cell-label">Social content</div>
+          <div class="cell-value" style="font-size:12px;">Dark canvas, light text. Blue for eyebrows and stats only. Red never appears on Instagram/Threads — too aggressive at small sizes.</div>
+        </div>
+        <div class="cell">
+          <div class="cell-label">Case studies</div>
+          <div class="cell-value" style="font-size:12px;">Light canvas preferred. Dark section blocks for contrast. Blue for stat callouts, section labels, data highlights. Red for critical findings only.</div>
+        </div>
+        <div class="cell">
+          <div class="cell-label">Dashboards / Airtable</div>
+          <div class="cell-value" style="font-size:12px;">Follow the platform. Use blue for primary actions and active states. Use red only for alert/error states. Never override platform chrome with brand colors.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TYPOGRAPHY ── -->
+  <div class="section" id="type">
+    <div class="section-eyebrow">Section 03</div>
+    <h2 class="section-title">Typography system</h2>
+    <p class="section-sub">Three typefaces. Each with a specific role. Garet leads at display scale. Inter handles all UI and body. DM Mono owns labels, code, and expressive moments. Never use more than two in a single layout.</p>
+
+    <!-- Type specimens -->
+    <div style="margin-bottom:48px;">
+
+      <div class="type-row" style="background:rgba(32,32,32,0.02);">
+        <div class="type-meta">
+          <div class="type-meta-name">Garet</div>
+          <div class="type-meta-spec">Role: Display / Hero / Headings<br>Weight: Regular 400, Bold 700<br>Case: Sentence case<br>Tracking: -0.01em to -0.02em<br><span style="color:var(--blue);">The JR signature voice</span></div>
+        </div>
+        <div class="type-sample" style="font-family:'Garet',sans-serif;font-size:40px;font-weight:700;letter-spacing:-0.02em;line-height:1;">Systems that work.<br>Visuals that mean it.</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-meta-name">Inter</div>
+          <div class="type-meta-spec">Role: UI / Body / Subheads<br>Weight: Regular 400, Medium 500, SemiBold 600<br>Case: Sentence case<br>Tracking: 0 to -0.01em<br><span style="color:var(--mid);">All reading, all interface</span></div>
+        </div>
+        <div class="type-sample">
+          <div style="font-family:'Inter',sans-serif;font-size:18px;font-weight:600;margin-bottom:8px;letter-spacing:-0.01em;">I build how the work flows and how it looks.</div>
+          <div style="font-family:'Inter',sans-serif;font-size:14px;color:rgba(32,32,32,0.55);line-height:1.7;">Inter handles all UI text, body copy, captions, and interface labels. Highly readable at small sizes. Confident at medium sizes. Never use it at display scale — that's Garet's job.</div>
+        </div>
+      </div>
+
+      <div class="type-row" style="background:rgba(32,32,32,0.02);">
+        <div class="type-meta">
+          <div class="type-meta-name">DM Mono</div>
+          <div class="type-meta-spec">Role: Labels / Code / Expressive<br>Weight: Regular 400, Medium 500<br>Case: lowercase or ALL CAPS<br>Tracking: 0 to +0.12em<br><span style="color:var(--blue);">The precision signal</span></div>
+        </div>
+        <div class="type-sample">
+          <div style="font-family:'DM Mono',monospace;font-size:28px;font-weight:400;letter-spacing:0.08em;color:var(--blue);">JR — 2025</div>
+          <div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--mid);margin-top:8px;line-height:1.7;">tokens.json · systems architect · visual strategist<br>use for: eyebrows, stats, tags, code, social handles</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cell-label" style="margin-bottom:8px;">Type hierarchy — apply in this order</div>
+    <div style="font-size:11px;color:var(--mid);font-family:var(--mono);margin-bottom:16px;">Web + digital products. Social card sizes are defined in the Social Media Guidelines.</div>
+    <table class="token-table">
+      <thead>
+        <tr><th>Role</th><th>Typeface</th><th>Size</th><th>Weight</th><th>Tracking</th><th>Line height</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Display / Hero</td><td>Garet</td><td>48–80px</td><td>Bold 700</td><td>-0.02em</td><td>0.95–1.05</td></tr>
+        <tr><td>Section headline</td><td>Garet</td><td>32–40px</td><td>Bold 700</td><td>-0.01em</td><td>1.1</td></tr>
+        <tr><td>Subheadline</td><td>Inter</td><td>20–24px</td><td>SemiBold 600</td><td>-0.01em</td><td>1.25</td></tr>
+        <tr><td>Body</td><td>Inter</td><td>16px</td><td>Regular 400</td><td>0</td><td>1.7</td></tr>
+        <tr><td>Body small</td><td>Inter</td><td>14px</td><td>Regular 400</td><td>0</td><td>1.65</td></tr>
+        <tr><td>Caption / Meta</td><td>Inter</td><td>12px</td><td>Regular 400</td><td>0</td><td>1.5</td></tr>
+        <tr><td>Eyebrow / Label</td><td>DM Mono</td><td>10–11px</td><td>Medium 500</td><td>+0.10em</td><td>1</td></tr>
+        <tr><td>Stat / Number</td><td>Garet</td><td>36–56px</td><td>Bold 700</td><td>-0.02em</td><td>1</td></tr>
+        <tr><td>Social display</td><td>Garet</td><td>64–80px</td><td>ExtraBold 800</td><td>-0.02em</td><td>0.88–0.92</td></tr>
+        <tr><td>Code / Tokens</td><td>DM Mono</td><td>12–13px</td><td>Regular 400</td><td>0</td><td>1.6</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box" style="margin-top:16px;">
+      <strong style="color:var(--blue);">Why 16px body?</strong> 16px is the browser default and the standard for comfortable reading in web products. 14px is acceptable for dense UI (tables, labels, sidebars). 18px+ is editorial/long-form only. The +2px rule applies at display scale — not body. Display → Section → Subhead jumps are where contrast matters most.
+    </div>
+
+    <div class="note-box">
+      <strong style="color:var(--blue);">Type pairing rule:</strong> Garet at display scale. Inter for everything you read. DM Mono for everything you reference. The contrast between Garet's rounded geometry and DM Mono's technical precision is the typographic voice of JR. Never mix more than two typefaces in a single layout. Inter and DM Mono can coexist — Garet always stands alone at display scale.
+    </div>
+  </div>
+
+  <!-- ── SPACING ── -->
+  <div class="section" id="spacing">
+    <div class="section-eyebrow">Section 04</div>
+    <h2 class="section-title">Spacing system</h2>
+    <p class="section-sub">8px base unit. Everything is a multiple of 8. This makes Figma auto-layout consistent and your layouts feel structured without effort.</p>
+
+    <div class="spacing-row"><div class="spacing-box" style="width:4px;"></div><div class="spacing-token">space-0.5</div><div class="spacing-px">4px</div><div class="spacing-use">Icon padding, tight label gaps</div></div>
+    <div class="spacing-row"><div class="spacing-box" style="width:8px;"></div><div class="spacing-token">space-1</div><div class="spacing-px">8px</div><div class="spacing-use">Between inline elements, tag padding</div></div>
+    <div class="spacing-row"><div class="spacing-box" style="width:16px;"></div><div class="spacing-token">space-2</div><div class="spacing-px">16px</div><div class="spacing-use">Between related elements (label → value)</div></div>
+    <div class="spacing-row"><div class="spacing-box" style="width:24px;"></div><div class="spacing-token">space-3</div><div class="spacing-px">24px</div><div class="spacing-use">Card internal padding, between list items</div></div>
+    <div class="spacing-row"><div class="spacing-box" style="width:32px;"></div><div class="spacing-token">space-4</div><div class="spacing-px">32px</div><div class="spacing-use">Between content blocks, section padding</div></div>
+    <div class="spacing-row"><div class="spacing-box" style="width:48px;"></div><div class="spacing-token">space-6</div><div class="spacing-px">48px</div><div class="spacing-use">Section internal spacing</div></div>
+    <div class="spacing-row"><div class="spacing-box" style="width:64px;"></div><div class="spacing-token">space-8</div><div class="spacing-px">64px</div><div class="spacing-use">Between major sections, hero padding</div></div>
+    <div class="spacing-row"><div class="spacing-box" style="width:96px;"></div><div class="spacing-token">space-12</div><div class="spacing-px">96px</div><div class="spacing-use">Page margins on desktop</div></div>
+
+    <div class="note-box" style="margin-top:24px;">
+      <strong style="color:var(--blue);">Whitespace is structure.</strong> When in doubt, add more space between sections. Compression feels amateur. Breathing room feels premium.
+    </div>
+  </div>
+
+  <!-- ── LAYOUT ── -->
+  <div class="section" id="layout">
+    <div class="section-eyebrow">Section 05</div>
+    <h2 class="section-title">Layout system</h2>
+    <p class="section-sub">Consistent grids across all formats. Left-aligned by default. Centered only for hero moments or deliberate editorial emphasis.</p>
+
+    <div class="grid grid-2" style="margin-bottom:24px;">
+      <div class="cell">
+        <div class="cell-label">Grid — social (1080×1080)</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">
+          — 48px margin all sides<br>
+          — 12-column grid, 16px gutter<br>
+          — Content in columns 1–8 (left) or 3–10 (centered)<br>
+          — Always align headline to left edge<br>
+          — Eyebrow label: top-left<br>
+          — Logo/handle: bottom-left<br>
+          — Stat or accent: bottom-right
+        </div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Grid — carousel (1080×1350)</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">
+          — 56px left/right margin<br>
+          — Slide 1: cover — full bleed headline, eyebrow, handle<br>
+          — Slides 2–N: consistent left margin, section label top, content center<br>
+          — Last slide: CTA + handle + link<br>
+          — Keep 1 idea per slide. Never 2.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-bottom:24px;">
+      <div class="cell">
+        <div class="cell-label">Grid — landing page (desktop)</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">
+          — Max content width: 1200px<br>
+          — Page margins: 96px left/right<br>
+          — 12-column grid, 24px gutter<br>
+          — Hero text: columns 1–7<br>
+          — Body text max-width: 600px<br>
+          — Section padding: 96px top/bottom
+        </div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Grid — case study page</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">
+          — Header/meta: full width<br>
+          — Body copy: max 680px, centered<br>
+          — Stat callouts: full width, dark background<br>
+          — Images: full bleed or max 880px<br>
+          — Tool/process tables: full width<br>
+          — Section dividers: 1px border or full-width spacing
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="cell">
+        <div class="cell-label">Alignment rules</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">Left-aligned: 90% of all content. Centered: hero headlines on mobile only, pull quotes, stat moments. Right-aligned: never, except metadata or timestamps.</div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Border / divider rules</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">Use 1px borders at 12% opacity for structure. Never use drop shadows — borders are the JR way. Dividers are horizontal only. No decorative rules or ornaments.</div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Imagery rules</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">Screenshots: always in device frame or with a border. No floating pngs. Photos: desaturated or with a dark overlay. Never stock photography of people. Real screenshots > mockups.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TEMPLATES ── -->
+  <div class="section" id="templates">
+    <div class="section-eyebrow">Section 06</div>
+    <h2 class="section-title">Content templates</h2>
+    <p class="section-sub">Four card types. Each has one job. Post format is determined by card type — not by topic. Build the templates once in Canva. Swap text only. Full specs in the Social Media Brand Guidelines.</p>
+
+    <div class="note-box" style="margin-bottom:32px;">
+      <strong style="color:var(--blue);">System rule:</strong> The JR social grid runs on 3 colors — Black #0D0D0D · White #F5F5F5 · Orange #E84C00. These are social-only colors. The blue and red from the main brand system never appear on social content. Orange appears on 2 of every 9 cards maximum. Every visual decision is justified.
+    </div>
+
+    <!-- Card 1 — Black -->
+    <div class="template">
+      <div class="template-header" style="background:#0D0D0D;border-color:#222;">
+        <div class="template-name" style="color:#F5F5F5;">Card 01 — Black · Anchor</div>
+        <div class="template-tag" style="color:#666;">Manifesto · Quotes · Case covers · Build logs</div>
+      </div>
+      <div class="template-body">
+        <div class="template-structure">
+          <div class="template-struct-title">Structure</div>
+          <div class="struct-item"><div class="struct-num">01</div><div class="struct-text"><strong>Eyebrow</strong> — DM Mono, 11px, ALL CAPS, #444444, top left</div></div>
+          <div class="struct-item"><div class="struct-num">02</div><div class="struct-text"><strong>Headline</strong> — Garet ExtraBold 800, 72–80px, ALL CAPS, #F5F5F5, tracking -.02em</div></div>
+          <div class="struct-item"><div class="struct-num">03</div><div class="struct-text"><strong>Orange rule</strong> — #E84C00, 40px wide, 3px tall, directly under headline</div></div>
+          <div class="struct-item"><div class="struct-num">04</div><div class="struct-text"><strong>Handle</strong> — @julissaroa, DM Mono, 10px, #2A2A2A, bottom left. Always present.</div></div>
+          <div class="struct-item"><div class="struct-num">—</div><div class="struct-text">Background: <strong>#0D0D0D</strong> · Size: 1080×1080 + 1080×1350px</div></div>
+        </div>
+        <div class="template-preview" style="background:#0D0D0D;color:#F5F5F5;">
+          <div style="font-family:var(--mono);font-size:9px;color:#444;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;">Systems Design</div>
+          <div style="font-family:var(--display);font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:.92;margin-bottom:8px;">Every visual decision<br>is justified.</div>
+          <div style="width:32px;height:2px;background:#E84C00;margin-bottom:auto;"></div>
+          <div style="font-family:var(--mono);font-size:9px;color:#2A2A2A;margin-top:24px;">@julissaroa</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 — White -->
+    <div class="template">
+      <div class="template-header" style="background:#F5F5F5;border-color:#E0E0E0;">
+        <div class="template-name" style="color:#0D0D0D;">Card 02 — White · Data</div>
+        <div class="template-tag" style="color:#888;">Stats · Case labels · Diagrams · Closing statements</div>
+      </div>
+      <div class="template-body">
+        <div class="template-structure">
+          <div class="template-struct-title">Structure</div>
+          <div class="struct-item"><div class="struct-num">01</div><div class="struct-text"><strong>Case label</strong> — "CASE:" prefix, DM Mono, #E84C00, 10px, top left</div></div>
+          <div class="struct-item"><div class="struct-num">02</div><div class="struct-text"><strong>Stat or headline</strong> — Garet ExtraBold, #0D0D0D, 64–80px</div></div>
+          <div class="struct-item"><div class="struct-num">03</div><div class="struct-text"><strong>Orange rule</strong> — same as black card, under headline</div></div>
+          <div class="struct-item"><div class="struct-num">04</div><div class="struct-text"><strong>Orange arrow</strong> — ↘ or ↗, signals more content or link, bottom right</div></div>
+          <div class="struct-item"><div class="struct-num">05</div><div class="struct-text"><strong>Handle</strong> — #BBBBBB, mono, 10px, bottom left</div></div>
+          <div class="struct-item"><div class="struct-num">—</div><div class="struct-text">Background: <strong>#F5F5F5</strong> · Duplicate black template, swap colors</div></div>
+        </div>
+        <div class="template-preview" style="background:#F5F5F5;color:#0D0D0D;">
+          <div style="font-family:var(--mono);font-size:9px;color:#E84C00;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;">Case: Ileverde</div>
+          <div style="font-family:var(--display);font-size:28px;font-weight:700;line-height:1;margin-bottom:6px;color:#E84C00;">423%</div>
+          <div style="font-family:var(--mono);font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Reservation growth</div>
+          <div style="width:32px;height:2px;background:#E84C00;"></div>
+          <div style="display:flex;justify-content:space-between;margin-top:20px;align-items:flex-end;">
+            <div style="font-family:var(--mono);font-size:9px;color:#BBBBBB;">@julissaroa</div>
+            <div style="font-size:16px;color:#E84C00;">↘</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 — Orange -->
+    <div class="template">
+      <div class="template-header" style="background:#E84C00;border-color:#c43d00;">
+        <div class="template-name" style="color:#fff;">Card 03 — Orange · Signal</div>
+        <div class="template-tag" style="color:rgba(255,255,255,0.6);">Bold takes · Service sells only · Max 2 per 9-cell page</div>
+      </div>
+      <div class="template-body">
+        <div class="template-structure">
+          <div class="template-struct-title">Structure</div>
+          <div class="struct-item"><div class="struct-num">01</div><div class="struct-text"><strong>Eyebrow</strong> — rgba(255,255,255,0.5), DM Mono, 10px, ALL CAPS</div></div>
+          <div class="struct-item"><div class="struct-num">02</div><div class="struct-text"><strong>Headline</strong> — #FFFFFF, Garet ExtraBold, 64–80px, ALL CAPS</div></div>
+          <div class="struct-item"><div class="struct-num">03</div><div class="struct-text"><strong>Arrow ↗</strong> — rgba(255,255,255,0.6), bottom right. Always present.</div></div>
+          <div class="struct-item"><div class="struct-num">04</div><div class="struct-text"><strong>Handle</strong> — rgba(255,255,255,0.3), mono, bottom left</div></div>
+          <div class="struct-item"><div class="struct-num">—</div><div class="struct-text">Background: <strong>#E84C00</strong> · Hard rule: never for general content or quotes</div></div>
+        </div>
+        <div class="template-preview" style="background:#E84C00;color:#fff;">
+          <div style="font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;">48-HR Audit</div>
+          <div style="font-family:var(--display);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:.92;color:#fff;">Find what's<br>breaking it.</div>
+          <div style="display:flex;justify-content:space-between;margin-top:24px;align-items:flex-end;">
+            <div style="font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.3);">contra.com/julissaroa</div>
+            <div style="font-size:16px;color:rgba(255,255,255,0.6);">↗</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 — Cinematic -->
+    <div class="template">
+      <div class="template-header" style="background:#111;border-color:#222;">
+        <div class="template-name" style="color:#F5F5F5;">Card 04 — Cinematic · Photo</div>
+        <div class="template-tag" style="color:#666;">Case study covers · Reel covers · Max 1 per 9-cell row</div>
+      </div>
+      <div class="template-body">
+        <div class="template-structure">
+          <div class="template-struct-title">Structure</div>
+          <div class="struct-item"><div class="struct-num">01</div><div class="struct-text"><strong>Real photo</strong> — full bleed. Must be yours or directly tied to the project. Never stock.</div></div>
+          <div class="struct-item"><div class="struct-num">02</div><div class="struct-text"><strong>Dark gradient overlay</strong> — black 85% bottom → transparent top</div></div>
+          <div class="struct-item"><div class="struct-num">03</div><div class="struct-text"><strong>Case label</strong> — "CASE —" or date, top right, white, mono, small</div></div>
+          <div class="struct-item"><div class="struct-num">04</div><div class="struct-text"><strong>Project name</strong> — bottom left, Garet, large, bold, white, uppercase</div></div>
+          <div class="struct-item"><div class="struct-num">05</div><div class="struct-text"><strong>No orange rule</strong> — the photo provides the visual weight</div></div>
+          <div class="struct-item"><div class="struct-num">—</div><div class="struct-text">Works for: real property photos, device with system running, construction site, Reel cover stills</div></div>
+        </div>
+        <div class="template-preview" style="background:linear-gradient(to top, #0D0D0D 60%, #444 100%);color:#fff;position:relative;">
+          <div style="font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.1em;position:absolute;top:0;right:0;">Case —</div>
+          <div style="margin-top:auto;">
+            <div style="font-family:var(--mono);font-size:8px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">Hospitality · Systems</div>
+            <div style="font-family:var(--display);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:-.01em;color:#fff;">Ileverde<br>Residences</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:24px;">
+      <strong style="color:var(--blue);">Grid rhythm:</strong> Black appears at positions 1, 5, 9 — the anchors. White creates contrast at positions 2, 4, 6, 8. Orange at maximum 2 positions per 9-cell page — always earns its place. Cinematic maximum 1 per row. The rhythm IS the system working. Full posting cadence in the Social Media Brand Guidelines.
+    </div>
+  </div>
+
+  <!-- ── MOTION ── -->
+  <div class="section" id="motion">
+    <div class="section-eyebrow">Section 07</div>
+    <h2 class="section-title">Motion & visual accents</h2>
+    <p class="section-sub">Motion is not decoration. It proves capability. Every screen recording or loop should show something real — a system working, a process flowing, a decision being made.</p>
+
+    <div class="grid grid-2" style="margin-bottom:24px;">
+      <div class="cell">
+        <div class="cell-label">Screen recordings — what works</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">
+          — Airtable views switching between Grid / Gallery / Dashboard<br>
+          — Figma: auto-layout adjusting, component variants switching<br>
+          — Guesty/Operto: booking flow, message automation<br>
+          — Notion: linked databases, formula fields<br>
+          — Keep to 6–15 seconds. No audio. No cursor fumbling.<br>
+          — Always record at 2x or retina. Never upscale.
+        </div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">GIF / loop rules</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">
+          — Max 3 seconds per loop<br>
+          — One thing happening per loop — not a full workflow demo<br>
+          — No text animations (no fly-in, no typewriter effect)<br>
+          — Subtle movement: a chart filling, a status changing, a view filtering<br>
+          — Always place in a device frame or bordered container<br>
+          — Never autoplay with sound in any context
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="cell">
+        <div class="cell-label">What motion proves</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">You built real things. A 6-second Airtable screen recording is more convincing than 3 paragraphs of copy. Use motion where static screenshots leave questions unanswered.</div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">What to avoid</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">
+          — Transitions for their own sake<br>
+          — Lottie animations as decoration<br>
+          — Slide-in text on social posts<br>
+          — Motion that plays before content loads<br>
+          — Anything that loops more than 3x without pause
+        </div>
+      </div>
+      <div class="cell">
+        <div class="cell-label">Premium motion feel</div>
+        <div class="cell-value" style="font-size:12px;line-height:1.7;">
+          — Ease-out curves (never linear)<br>
+          — Duration: 200–400ms for UI, 800–1200ms for reveals<br>
+          — If something moves, only one thing moves at a time<br>
+          — Delay between elements: 80–120ms stagger<br>
+          — When in doubt: don't animate
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DO / DON'T ── -->
+  <div class="section" id="dodont">
+    <div class="section-eyebrow">Section 08</div>
+    <h2 class="section-title">Do / Don't</h2>
+    <p class="section-sub">These are constraints, not suggestions. They protect the system from drift.</p>
+
+    <div class="grid grid-2" style="margin-bottom:32px;">
+      <div class="cell">
+        <div class="rule-block green" style="border-left:2px solid #1D9E75;padding-left:20px;margin-bottom:0;">
+          <div class="rule-title green">DO</div>
+          <ul class="rule-list do">
+            <li>Use real numbers whenever possible — 423%, $609K, 10 years</li>
+            <li>Lead with outcomes, not process</li>
+            <li>Use Garet at display scale for all hero moments and section headlines</li>
+            <li>Keep social layouts left-aligned with generous margins</li>
+            <li>Show real screenshots — Airtable, Figma, Operto, Guesty</li>
+            <li>Use blue sparingly — max 30% of any frame</li>
+            <li>Keep 1 idea per slide, 1 dominant element per layout</li>
+            <li>Use mono-spaced type for labels, stats, and eyebrows</li>
+            <li>Put your handle on every piece of content</li>
+            <li>Use sentence case for all headlines</li>
+            <li>Respect 8px spacing increments in Figma</li>
+            <li>Let whitespace do the heavy lifting</li>
+            <li>Use borders instead of shadows for structural separation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="rule-block red" style="border-left:2px solid var(--red);padding-left:20px;margin-bottom:0;">
+          <div class="rule-title red">DON'T</div>
+          <ul class="rule-list dont">
+            <li>Use Horizon or Neue Einstellung — they're retired from the system</li>
+            <li>Use pure white (#ffffff) — always use #e4e2dd</li>
+            <li>Use red more than once per layout</li>
+            <li>Use drop shadows — ever</li>
+            <li>Center-align body text</li>
+            <li>Use gradients — flat color only</li>
+            <li>Mix more than 2 typefaces in a single layout</li>
+            <li>Use decorative dividers or ornaments</li>
+            <li>Animate text on social posts (no typewriter, no fly-in)</li>
+            <li>Use stock photography of people</li>
+            <li>Write "I'm passionate about..." anywhere</li>
+            <li>Use emoji in professional contexts (case studies, landing pages)</li>
+            <li>Post without your handle visible</li>
+            <li>Use Title Case for headlines</li>
+            <li>Compress images — always export at full resolution</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FIGMA TOKENS ── -->
+  <div class="section" id="tokens">
+    <div class="section-eyebrow">Section 09</div>
+    <h2 class="section-title">Figma implementation</h2>
+    <p class="section-sub">Set these up as local styles and variables in your Figma file before building any templates. This is the source of truth.</p>
+
+    <div class="cell-label" style="margin-bottom:16px;">Color variables — set in Figma as Local Variables</div>
+    <table class="token-table" style="margin-bottom:40px;">
+      <thead><tr><th>Variable name</th><th>Value</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr><td>color/base/dark</td><td>#202020</td><td>Primary background, dark surfaces</td></tr>
+        <tr><td>color/base/light</td><td>#e4e2dd</td><td>Primary text, light backgrounds</td></tr>
+        <tr><td>color/accent/blue</td><td>#0053e1</td><td>CTAs, links, eyebrows, data highlights</td></tr>
+        <tr><td>color/accent/red</td><td>#b60d0d</td><td>Emphasis only — max 1x per layout</td></tr>
+        <tr><td>color/text/primary</td><td>#e4e2dd</td><td>All primary text on dark</td></tr>
+        <tr><td>color/text/muted</td><td>rgba(32,32,32,0.45)</td><td>Captions, metadata, secondary text</td></tr>
+        <tr><td>color/border/default</td><td>rgba(32,32,32,0.1)</td><td>Card borders, dividers, table lines</td></tr>
+        <tr><td>color/surface/raised</td><td>rgba(32,32,32,0.03)</td><td>Subtle card lift on dark background</td></tr>
+        <tr><td>color/text/primary-on-light</td><td>#202020</td><td>All primary text on light canvas</td></tr>
+        <tr><td>color/border/on-light</td><td>rgba(32,32,32,0.12)</td><td>Borders on light-mode layouts</td></tr>
+      </tbody>
+    </table>
+
+    <div class="cell-label" style="margin-bottom:16px;">Text styles — set as Local Styles</div>
+    <table class="token-table" style="margin-bottom:40px;">
+      <thead><tr><th>Style name</th><th>Font / Size / Weight</th><th>Tracking / Leading</th></tr></thead>
+      <tbody>
+        <tr><td>text/display</td><td>Garet / 64px / 700</td><td>-0.02em / 0.95</td></tr>
+        <tr><td>text/headline-lg</td><td>Garet / 40px / 700</td><td>-0.01em / 1.1</td></tr>
+        <tr><td>text/headline-sm</td><td>Garet / 28px / 700</td><td>-0.01em / 1.15</td></tr>
+        <tr><td>text/stat</td><td>Garet / 48px / 700</td><td>-0.02em / 1</td></tr>
+        <tr><td>text/subhead</td><td>Inter / 20px / 600</td><td>-0.01em / 1.25</td></tr>
+        <tr><td>text/body</td><td>Inter / 15px / 400</td><td>0 / 1.7</td></tr>
+        <tr><td>text/body-sm</td><td>Inter / 13px / 400</td><td>0 / 1.6</td></tr>
+        <tr><td>text/caption</td><td>Inter / 11px / 400</td><td>0 / 1.5</td></tr>
+        <tr><td>text/eyebrow</td><td>DM Mono / 11px / 500</td><td>+0.08em / 1</td></tr>
+        <tr><td>text/social-display</td><td>DM Mono / 28px / 400</td><td>+0.06em / 1.1</td></tr>
+        <tr><td>text/code</td><td>DM Mono / 12px / 400</td><td>0 / 1.6</td></tr>
+      </tbody>
+    </table>
+
+    <div class="cell-label" style="margin-bottom:16px;">Spacing variables</div>
+    <table class="token-table">
+      <thead><tr><th>Token</th><th>Value</th><th>Primary use</th></tr></thead>
+      <tbody>
+        <tr><td>space/1</td><td>8px</td><td>Tight gaps, icon padding</td></tr>
+        <tr><td>space/2</td><td>16px</td><td>Label-to-value, inline gaps</td></tr>
+        <tr><td>space/3</td><td>24px</td><td>Card padding, list item gaps</td></tr>
+        <tr><td>space/4</td><td>32px</td><td>Between content blocks</td></tr>
+        <tr><td>space/6</td><td>48px</td><td>Section internal padding, social margins</td></tr>
+        <tr><td>space/8</td><td>64px</td><td>Between sections, hero padding</td></tr>
+        <tr><td>space/12</td><td>96px</td><td>Page margins, major section breaks</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note-box" style="margin-top:32px;">
+      <strong style="color:var(--blue);">Figma setup order:</strong> (1) Set up color variables. (2) Set up text styles. (3) Set up spacing variables. (4) Build a master component for each of the 5 content templates. (5) Create a social canvas at 1080×1080 and 1080×1350 as your base frames. Everything you build should reference these foundations — never hardcode values.
+    </div>
+
+    <!-- Applications Section -->
+    <div id="applications" style="margin-top:80px;padding-top:64px;border-top:1px solid var(--border);">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--mid);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Applications</div>
+      <div class="section-title" style="margin-bottom:8px;">System extensions</div>
+      <p class="section-sub">The JR Brand System is the source of truth. These documents are downstream applications — they inherit the system and apply it to a specific context. When the core system changes, these update accordingly.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:32px;">
+
+        <div style="background:#ffffff;padding:28px;">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">01 — Active</div>
+          <div style="font-size:16px;font-weight:600;color:#202020;margin-bottom:6px;">Social Media Brand Guidelines</div>
+          <div style="font-size:12px;color:var(--mid);line-height:1.65;margin-bottom:16px;">How the JR system expresses itself on Instagram, LinkedIn, and Threads. Covers grid rhythm, post types (Perspective / System / Proof), dark editorial aesthetic, content cadence, and caption voice. Accent: <span style="color:#E84C00;font-family:var(--mono);font-size:11px;">#E84C00</span> on ink base.</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+            <span style="font-family:var(--mono);font-size:10px;padding:3px 8px;border:1px solid var(--border);color:var(--mid);">Instagram</span>
+            <span style="font-family:var(--mono);font-size:10px;padding:3px 8px;border:1px solid var(--border);color:var(--mid);">LinkedIn</span>
+            <span style="font-family:var(--mono);font-size:10px;padding:3px 8px;border:1px solid var(--border);color:var(--mid);">Threads</span>
+            <span style="font-family:var(--mono);font-size:10px;padding:3px 8px;border:1px solid var(--border);color:var(--mid);">Pinterest</span>
+          </div>
+          <a href="JR_Social_Media_Brand_Guidelines_1.html" style="font-family:var(--mono);font-size:11px;color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue);padding-bottom:1px;">Open document →</a>
+        </div>
+
+        <div style="background:#f9f9f9;padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--mid);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">02 — Planned</div>
+            <div style="font-size:16px;font-weight:600;color:rgba(32,32,32,0.3);margin-bottom:6px;">Client Project Template</div>
+            <div style="font-size:12px;color:rgba(32,32,32,0.3);line-height:1.65;">How the JR system adapts for client work. Token overrides per project — color and type swap while structure, spacing, and component logic stay constant.</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:10px;color:rgba(32,32,32,0.25);margin-top:16px;">Coming — Sprint 4</div>
+        </div>
+
+        <div style="background:#f9f9f9;padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--mid);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">03 — Planned</div>
+            <div style="font-size:16px;font-weight:600;color:rgba(32,32,32,0.3);margin-bottom:6px;">Portfolio System</div>
+            <div style="font-size:12px;color:rgba(32,32,32,0.3);line-height:1.65;">How the JR system applies to the portfolio site. React + token-synced components. Every case study card, project page, and navigation element derives from this system.</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:10px;color:rgba(32,32,32,0.25);margin-top:16px;">Coming — Sprint 10</div>
+        </div>
+
+        <div style="background:#f9f9f9;padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div style="font-family:var(--mono);font-size:9px;color:var(--mid);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">04 — Planned</div>
+            <div style="font-size:16px;font-weight:600;color:rgba(32,32,32,0.3);margin-bottom:6px;">AI Audit Report Template</div>
+            <div style="font-size:12px;color:rgba(32,32,32,0.3);line-height:1.65;">The branded deliverable format for the JR AI Audit product. Intake, analysis sections, priority matrix, and recommendations — all styled from the JR system.</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:10px;color:rgba(32,32,32,0.25);margin-top:16px;">Coming — Sprint 9</div>
+        </div>
+
+      </div>
+
+      <div class="note-box" style="margin-top:32px;">
+        <strong style="color:var(--blue);">System rule:</strong> The Social Media Guidelines inherit color and type from this document. If you update a token here — a color value, a font choice — the social system updates accordingly. Never define brand values in application docs. Always trace back to this file.
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top:96px;padding-top:32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--mid);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Julissa Roa</div>
+        <div style="font-size:12px;color:rgba(32,32,32,0.4);">Systems Architect · Visual Strategist · AI Operator</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--blue);">julissaroa.com</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--mid);margin-top:2px;">contra.com/julissaroa</div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<script>
+// Active nav link on scroll
+const sections = document.querySelectorAll('.section, .hero');
+const navLinks = document.querySelectorAll('.nav-link');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const id = e.target.id;
+      if (id) {
+        const link = document.querySelector(`.nav-link[href="#${id}"]`);
+        if (link) link.classList.add('active');
+      }
+    }
+  });
+}, { threshold: 0.3 });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
