@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Node / build
+node_modules/
+dist/
+build/
+
+# Secrets
+.env
+.env.local
+
+# Editors
+.vscode/
+.idea/
