@@ -1,0 +1,15 @@
+:root{
+  --color-blue: #0053e1;
+  --color-red: #b60d0d;
+  --color-orange: #e84c00;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+}
+@media (color-gamut: p3){
+:root{
+  --color-blue: color(display-p3 0.1302 0.3202 0.8498);
+  --color-red: color(display-p3 0.6542 0.1492 0.1118);
+  --color-orange: color(display-p3 0.8415 0.3435 0.1474);
+  --color-success: color(display-p3 0.3692 0.7613 0.4136);
+  --color-warning: color(display-p3 0.9122 0.6349 0.2305);
+}}
